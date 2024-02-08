@@ -17,30 +17,21 @@ package com.mouredev.weeklychallenge2022
  * - Subiré una posible solución al ejercicio el lunes siguiente al de su publicación.
  *
  */
+def es_primo(num):
+    if num <= 1:
+        return False
+    elif num <= 3:
+        return True
+    elif num % 2 == 0 or num % 3 == 0:
+        return False
+    i = 5
+    while i * i <= num:
+        if num % i == 0 or num % (i + 2) == 0:
+            return False
+        i += 6
+    return True
 
-fun main() {
-
-    (1..100).forEach { number ->
-        if (isPrime(number)) {
-            println(number)
-        }
-    }
-}
-
-private fun isPrime(number: Int): Boolean {
-
-    if (number < 2) {
-        return false
-    }
-
-    for (i in 2 until number) {
-        if (number % i == 0) {
-            return false
-        }
-    }
-
-    return true
-}
-
-
-
+for num in range(1, 101):
+    if es_primo(num):
+        print(num)
+        
